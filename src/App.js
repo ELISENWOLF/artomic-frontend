@@ -7,6 +7,7 @@ import ShopSection from './Components/HomeComponents/ShopSection';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import HomeScreen from './Screens/HomeScreen';
+import ShippingScreen from './Screens/ShippingScreen';
 
 function App() {
   return (
@@ -18,4 +19,4 @@ function App() {
 
 export default App;
 
-// Time: 17:18
+// Time: 19:28
