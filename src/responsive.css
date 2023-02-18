@@ -1,0 +1,49 @@
+@media (max-width: 991.98px){
+    .display-none{
+        display: none !important;
+    }
+    .search-button{
+        font-size: 10px;
+    }
+    .Login-Register a{
+        font-size: 10px;
+    }
+    .btn-group button {
+        font-size: 13px;
+    }
+    .badge {
+        top: -10px;
+        padding: 5px;
+        font-size: 7px;
+    }
+    .input-group{
+        height: 30px;
+    }
+    .single-image,
+    .single-image img {
+        height: 400px;
+    }
+    .author-card-avatar img {
+        margin-top: -20%;
+    }
+    .order-box {
+        width: 50px;
+        height: 50px;
+        font-size: 15px;
+    }
+    .order-detail p {
+        font-size: 12px;
+    }
+    .order-detail {
+        padding: 20px 0;
+    }
+    .order-detail h5{
+        font-size: 13px;
+    }
+    .subtotal-order button {
+        margin-bottom: 30px;
+    }
+    .single-product {
+        margin-top: 20px;
+    }
+}

@@ -1,19 +1,37 @@
 import './App.css';
-import Pagination from './Components/HomeComponents/Pagination';
-import CalltoActionSection from './Components/HomeComponents/CalltoActionSection';
-import ContactInfo from './Components/HomeComponents/ContactInfo';
-import Rating from './Components/HomeComponents/Rating';
-import ShopSection from './Components/HomeComponents/ShopSection';
-import Footer from './Components/Footer';
-import Header from './Components/Header';
+import './responsive.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeScreen from './Screens/HomeScreen';
+import SingleProduct from './Screens/SingleProduct';
+import Login from './Screens/Login';
+import Register from './Screens/Register';
+import ProfileScreen from './Screens/ProfileScreen';
+import CartScreen from './Screens/CartScreen';
 import ShippingScreen from './Screens/ShippingScreen';
+import PaymentScreen from './Screens/PaymentScreen';
+import PlacedOrderScreen from './Screens/PlacedOrderScreen';
+import OrderScreen from './Screens/OrderScreen';
+import NotFound from './Screens/NotFound';
+
 
 function App() {
   return (
-    <div className="App">
-      <h2 style={{ color: 'red' }}>Hello</h2>
-    </div>
+   <Router>
+    <Switch>
+      <Route path='/' component={HomeScreen} />
+      <Route path= '/products/:id' component={SingleProduct} />   
+      <Route path='/login' component={Login} />
+      <Route path='/register' component={Register} />
+      <Route path='/profile' component={ProfileScreen} />
+      <Route path='/cart/:id?' component={CartScreen} />
+      <Route path='/shipping' component={ShippingScreen} />
+      <Route path='/payment' component={PaymentScreen} />
+      <Route path='/placeorder' component={PlacedOrderScreen} />
+      <Route path='/order' component={OrderScreen} />
+      <Route path='*' component={NotFound} />
+    </Switch>
+   </Router>
   );
 }
 

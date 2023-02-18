@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import products from '../../data/Products'
 import Pagination from './Pagination'
 import Rating from './Rating'
-import products from '../../data/Products';
 
 const ShopSection = () => {
     return (
