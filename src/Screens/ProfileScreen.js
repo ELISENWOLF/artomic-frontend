@@ -68,7 +68,8 @@ const ProfileScreen = () => {
                     class='tab-content col-lg-8 pb-5 pt-lg-0 pt-3'
                     id='v-pills-tabContent'
                 >
-                    
+                    <Order />
+                    <ProfileTabs />
                 </div>
             </div>
         </div>

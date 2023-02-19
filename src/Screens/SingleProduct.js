@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
 import Rating from '../Components/HomeComponents/Rating';
-import products from '../data/Products';
+import Message from '../Components/LoadingError/Error';
+import products from '../Data/Products';
 
 const SingleProduct = ({match}) => {
     const product = products.find((p) => p._id === match.params.id);
