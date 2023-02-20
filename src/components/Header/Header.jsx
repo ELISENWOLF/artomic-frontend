@@ -3,10 +3,27 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './header.css'
 
+import { motion } from 'framer-motion'
+
 import logo from '../../assets/images/eco-logo.png'
 import userIcon from '../../assets/images/user-icon.png'
 
 import { Container, Row } from 'reactstrap'
+
+const nav_links = [
+  {
+    path: 'home',
+    display: 'Home'
+  },
+  {
+    path: 'shop',
+    display: 'Shop'
+  },
+  {
+    path: 'cart',
+    display: 'Cart'
+  }
+]
 
 const Header = () => {
   return (
@@ -18,21 +35,25 @@ const Header = () => {
               <img src={logo} alt="logo" />
               <div>
                 <h1>Artomic</h1>
-                <p>since 2023</p>
               </div>
             </div>
 
             <div className="navigation">
               <ul className="menu">
-                <li className="nav_item">
-                  <NavLink to='home'>Home</NavLink>
+                {
+                  nav_links.map((item, index)=> (
+                    <li className="nav_item" key={index}>
+                  <NavLink 
+                    to={item.path} 
+                    className={(navClass) => 
+                    navClass.isActive ? 'nav_active' : ''
+                    }
+                  >
+                    {item.display}
+                  </NavLink>
                 </li>
-                <li className="nav_item">
-                  <NavLink to='shop'>Shop</NavLink>
-                </li>
-                <li className="nav_item">
-                  <NavLink to='cart'>Cart</NavLink>
-                </li>
+                  ))
+                }
               </ul>
             </div>
 
@@ -40,12 +61,14 @@ const Header = () => {
 
               <span className="fav_icon">
                 <i class="ri-heart-line"></i>
+                <span className="badge">1</span>
               </span>
               <span className="cart_icon">
                 <i class="ri-shopping-bag-line"></i>
+                <span className="badge">1</span>
               </span>
               <span>
-                <img src={userIcon} alt="" />
+                <motion.img whileTap={{ scale:1.2 }} src={userIcon} alt="" />
               </span>
             </div>
 
