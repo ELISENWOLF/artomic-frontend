@@ -1,16 +1,16 @@
-import productImg01 from "../images/double-sofa-01.png";
-import productImg02 from "../images/double-sofa-02.png";
-import productImg03 from "../images/double-sofa-03.png";
+import productImg01 from "../images/Kakashi.jpeg";
+import productImg02 from "../images/Luffy-1.jpeg";
+import productImg03 from "../images/Luffy-2.jpeg";
 
-import productImg04 from "../images/single-sofa-01.jpg";
-import productImg05 from "../images/single-sofa-02.jpg";
-import productImg06 from "../images/single-sofa-03.jpg";
-import productImg007 from "../images/single-sofa-04.png";
+import productImg04 from "../images/Nezuko X Tanjiro.jpeg";
+import productImg05 from "../images/Rengoku.jpeg";
+import productImg06 from "../images/Yoriichi.jpeg";
+import productImg007 from "../images/zoro.jpeg";
 
-import productImg07 from "../images/arm-chair-01.jpg";
-import productImg08 from "../images/arm-chair-02.jpg";
-import productImg09 from "../images/arm-chair-03.jpg";
-import productImg10 from "../images/arm-chair-01.jpg";
+import productImg07 from "../images/Bakugo.png";
+import productImg08 from "../images/Deku.jpeg";
+import productImg09 from "../images/Hinata.jpeg";
+import productImg10 from "../images/Eren.jpeg";
 
 import productImg13 from "../images/phone-01.jpg";
 import productImg14 from "../images/phone-02.jpg";
@@ -31,7 +31,7 @@ import productImg25 from "../images/wireless-03.png";
 const products = [
   {
     id: "01",
-    productName: "Stone and Beam Westview ",
+    productName: "Kakashi Hatake",
     imgUrl: productImg01,
     category: "sofa",
     price: 193,
@@ -50,7 +50,7 @@ const products = [
 
   {
     id: "02",
-    productName: "Rivet Bigelow Modern ",
+    productName: "Monkey D Luffy",
     imgUrl: productImg02,
     category: "sofa",
     price: 253,
@@ -73,7 +73,7 @@ const products = [
 
   {
     id: "03",
-    productName: "Amazon Brand Modern Sofa",
+    productName: "Monkey D Luffy",
     imgUrl: productImg03,
     category: "sofa",
     price: 173,
@@ -95,7 +95,7 @@ const products = [
   },
   {
     id: "26",
-    productName: "Rivet Bigelow Modern ",
+    productName: "Monkey D Luffy",
     imgUrl: productImg02,
     category: "sofa",
     price: 253,
@@ -117,7 +117,7 @@ const products = [
   },
   {
     id: "04",
-    productName: "Fllufy Sheep Sofa",
+    productName: "Nezuko X Tanjiro",
     imgUrl: productImg04,
     category: "sofa",
     price: 163,
@@ -140,7 +140,7 @@ const products = [
 
   {
     id: "05",
-    productName: "Faux Velvet Sofa",
+    productName: "Kyojuro Rengoku",
     imgUrl: productImg05,
     category: "sofa",
     price: 163,
@@ -163,7 +163,7 @@ const products = [
 
   {
     id: "06",
-    productName: "Fllufy Sheep Sofa",
+    productName: "Yoriichi Tsugikuni",
     imgUrl: productImg06,
     category: "sofa",
     price: 163,
@@ -185,7 +185,7 @@ const products = [
   },
   {
     id: "07",
-    productName: "Sakarias Armchair",
+    productName: "Katsuki Bakugo",
     imgUrl: productImg07,
     category: "chair",
     price: 99,
@@ -208,7 +208,7 @@ const products = [
 
   {
     id: "27",
-    productName: "Modern Arm Sofa",
+    productName: "Roronoa Zoro",
     imgUrl: productImg007,
     category: "sofa",
     price: 173,
@@ -231,7 +231,7 @@ const products = [
 
   {
     id: "08",
-    productName: "Baltsar Chair",
+    productName: "Izuku Midoriya",
     imgUrl: productImg08,
     category: "chair",
     price: 89,
@@ -254,7 +254,7 @@ const products = [
 
   {
     id: "09",
-    productName: "Helmar Chair",
+    productName: "Shoyo Hinata",
     imgUrl: productImg09,
     category: "chair",
     price: 112,
@@ -299,7 +299,7 @@ const products = [
   },
   {
     id: "25",
-    productName: "Sakarias Armchair",
+    productName: "Eren Yeager",
     imgUrl: productImg10,
     category: "chair",
     price: 99,

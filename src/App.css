@@ -23,6 +23,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  background: rgba(202, 231, 223, 0.4)
 }
 
 h1,
@@ -61,4 +62,9 @@ img{
 
 section {
   padding: 60px 0px;
+}
+
+.section_title {
+  color: var(--primary-color);
+  font-weight: 600;
 }
