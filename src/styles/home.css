@@ -37,3 +37,24 @@
 .hero_content {
     padding-top: 45px;
 }
+
+.timer_count {
+    background: #0e0e20;
+    height: 300px;
+}
+
+.timer_count img{
+    width: 50% !important;
+    height: 50% !important;
+    object-fit: contain;
+}
+
+.store_btn {
+    background: #fff;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.store_btn a:hover {
+    color: var(--primary-color);
+}

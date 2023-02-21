@@ -95,8 +95,8 @@ const products = [
   },
   {
     id: "26",
-    productName: "Monkey D Luffy",
-    imgUrl: productImg02,
+    productName: "Kyojuro Rengoku",
+    imgUrl: productImg05,
     category: "sofa",
     price: 253,
     shortDesc:
@@ -140,8 +140,8 @@ const products = [
 
   {
     id: "05",
-    productName: "Kyojuro Rengoku",
-    imgUrl: productImg05,
+    productName: "Monkey D Luffy",
+    imgUrl: productImg02,
     category: "sofa",
     price: 163,
     shortDesc:

@@ -1,31 +1,53 @@
 import React, { useState, useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import products from '../assets/data/products'
+
 import Helmet from '../components/Helmet/Helmet'
 import '../styles/home.css'
+
 import { Container, Row, Col } from "reactstrap"
 import heroImg from '../assets/images/hero-image.png'
+
 import Services from '../services/Services'
 import ProductList from '../components/UI/ProductList'
+import Clock from '../components/UI/Clock'
 
+import counterImg from '../assets/images/counter-timer-img.jpeg'
 
 
 const Home = () => {
 
   const [trendingProducts, setTrendingProducts] = useState([])
   const [bestSalesProducts, setBestSalesProducts] = useState([])
+  const [mobilProducts, setMobileProducts] = useState([])
+  const [wirelessProducts, setWirelessProducts] = useState([])
+  const [popularProducts, setPopularProducts] = useState([])
   const year = new Date().getFullYear()
 
   useEffect(() => {
     const filteredTrendingProducts = products.filter(
-      item=> item.category == 'chair'
+      item=> item.category === 'chair'
       )
     const filteredBestSalesProducts = products.filter(
-      item=> item.category == 'sofa'
+      item=> item.category === 'sofa'
       )
+    const filteredMobileProducts = products.filter(
+      item=> item.category === 'mobile'
+      )
+    const filteredWirelessProducts = products.filter(
+      item=> item.category === 'wireless'
+      )
+    const filteredPopularProducts = products.filter(
+      item=> item.category === 'watch'
+      )
+
       setTrendingProducts(filteredTrendingProducts);
-      setBestSalesProducts(filteredBestSalesProducts)
+      setBestSalesProducts(filteredBestSalesProducts);
+      setMobileProducts(filteredMobileProducts);
+      setWirelessProducts(filteredWirelessProducts);
+      setPopularProducts(filteredPopularProducts);
   },[])
 
   return (
@@ -62,7 +84,7 @@ const Home = () => {
       <section className="trending_products">
         <Container>
           <Row>
-            <Col lg="12" className="text-center">
+            <Col lg="12" className="text-center mb-4">
               <h2 className="section_title">Trending Products</h2>
             </Col>
             <ProductList data={trendingProducts}/>
@@ -73,13 +95,56 @@ const Home = () => {
       <section className="best_sales">
         <Container>
           <Row>
-              <Col lg="12" className="text-center">
+              <Col lg="12" className="text-center mb-4">
                 <h2 className="section_title">Best Sales</h2>
               </Col>
               <ProductList data={bestSalesProducts}/>
             </Row>
         </Container>
       </section>
+
+      <section className="timer_count">
+        <Container>
+          <Row>
+            <Col lg='6' md='6'>
+
+              <div className="clock_top-centent">
+                <h4 className="text-white fs-6 mb-2">What Are You Looking At!!!!</h4>
+                <h3 className="text-white fs-5 mb-3">Grab Your Favourite Pic</h3>
+              </div>
+              <Clock />
+
+              <motion.button whileTap={{ scale: 1.2 }} className="buy_btn store_btn"><Link to='/shop'>Visit Store</Link></motion.button>
+            </Col>
+            <Col lg='6' md='6' className='text-end'>
+              <img src={counterImg} alt="" />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+    <section className="new_arrivals">
+      <Container>
+        <Row>
+          <Col lg="12" className="text-center mb-4">
+            <h2 className="section_title">New Arrivals</h2>
+          </Col>
+          <ProductList data={mobilProducts}/>
+          <ProductList data={wirelessProducts} />
+        </Row>
+      </Container>
+    </section>
+
+    <section className="popular_category">
+    <Container>
+        <Row>
+          <Col lg="12" className="text-center mb-4">
+            <h2 className="section_title">Popular in Category</h2>
+          </Col>
+          <ProductList data={popularProducts}/>
+        </Row>
+      </Container>
+    </section>
 
     </Helmet>
   )
