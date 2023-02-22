@@ -1,5 +1,7 @@
 .product_item {
     cursor: pointer;
+    background: rgba(216, 216, 216, 0.3);
+    border-radius: 0px 0px 10px 10px;
 }
 
 .product_info h3 a{

@@ -3,11 +3,13 @@
 
 /*  css variables */
 :root {
-  --card-bg-01: #fdefe6;
+  --bg-01: rgba(202, 231, 223, 0.4);
+  --bg-02:rgb(221, 236, 232);
+  --card-bg-01: #efeae7;
   --card-bg-02: #d6e5fb;
   --card-bg-03: #ceebe9;
   --card-bg-04: #e2f2b2;
-  --primary-color: #0a1d37;
+  --primary-color: #0e0e20;
   --hero-bg: #fee638;
   --heading-fontSize: 2rem;
   --small-text-color: #999;
@@ -23,7 +25,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: rgba(202, 231, 223, 0.4)
+  background: var(--bg-01)
 }
 
 h1,
