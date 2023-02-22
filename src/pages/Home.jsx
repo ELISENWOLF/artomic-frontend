@@ -116,7 +116,7 @@ const Home = () => {
 
               <motion.button whileTap={{ scale: 1.2 }} className="buy_btn store_btn"><Link to='/shop'>Visit Store</Link></motion.button>
             </Col>
-            <Col lg='6' md='6' className='text-end'>
+            <Col lg='5' md='6' className='text-end'>
               <img src={counterImg} alt="" />
             </Col>
           </Row>
