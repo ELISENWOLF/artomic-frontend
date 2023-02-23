@@ -51,7 +51,7 @@ const Home = () => {
   },[])
 
   return (
-    <Helmet title={'Home'}>
+    <Helmet>
       <section className="hero_section">
         <Container>
           <Row>
@@ -72,7 +72,7 @@ const Home = () => {
             </Col>
             <Col lg="3" md="6" >
               <div className="hero_img">
-                <img src={heroImg} alt="" />
+                <motion.img animate={{rotateY: 360}} transition={{duration: 5, repeat: Infinity, repeatDelay: 3}} src={heroImg} alt="" />
               </div>
             </Col>
           </Row>

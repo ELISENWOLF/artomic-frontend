@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './header.css'
 
 import { motion } from 'framer-motion'
@@ -12,17 +12,17 @@ import { Container, Row } from 'reactstrap'
 
 const nav_links = [
   {
-    path: 'home',
+    path: '/',
     display: 'Home'
   },
   {
     path: 'shop',
     display: 'Shop'
   },
-  {
-    path: 'cart',
-    display: 'Cart'
-  }
+  // {
+  //   path: 'cart',
+  //   display: 'Cart'
+  // }
 ];
 
 const Header = () => {
@@ -82,13 +82,15 @@ const Header = () => {
 
             <div className="nav_icons">
 
-              <span className="fav_icon">
+              {/* <span className="fav_icon">
                 <i class="ri-heart-line"></i>
                 <span className="badge">1</span>
-              </span>
+              </span> */}
               <span className="cart_icon">
+                <Link to="/cart">
                 <i class="ri-shopping-bag-line"></i>
                 <span className="badge">1</span>
+                </Link>
               </span>
               <span>
                 <motion.img whileTap={{ scale:1.2 }} src={userIcon} alt="" />
