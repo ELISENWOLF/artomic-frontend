@@ -51,7 +51,7 @@ const Home = () => {
   },[])
 
   return (
-    <Helmet>
+    <Helmet title={'Home'}>
       <section className="hero_section">
         <Container>
           <Row>

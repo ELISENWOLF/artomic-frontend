@@ -9,6 +9,7 @@ import logo from '../../assets/images/eco-logo.png'
 import userIcon from '../../assets/images/user-icon.png'
 
 import { Container, Row } from 'reactstrap'
+import { useSelector } from 'react-redux'
 
 const nav_links = [
   {
@@ -18,16 +19,14 @@ const nav_links = [
   {
     path: 'shop',
     display: 'Shop'
-  },
-  // {
-  //   path: 'cart',
-  //   display: 'Cart'
-  // }
+  }
 ];
 
 const Header = () => {
 
   const headerRef = useRef(null);
+
+  const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
   const menuRef = useRef(null)
 
@@ -81,15 +80,10 @@ const Header = () => {
             </div>
 
             <div className="nav_icons">
-
-              {/* <span className="fav_icon">
-                <i class="ri-heart-line"></i>
-                <span className="badge">1</span>
-              </span> */}
               <span className="cart_icon">
                 <Link to="/cart">
                 <i class="ri-shopping-bag-line"></i>
-                <span className="badge">1</span>
+                <span className="badge">{totalQuantity}</span>
                 </Link>
               </span>
               <span>

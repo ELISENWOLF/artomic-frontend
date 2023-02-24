@@ -1,0 +1,15 @@
+.common_section {
+    background: url('../assets/images/common-section.png') no-repeat center center;;
+    background-size: contain;
+    background-position: 90%;
+    padding: 80px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(139,175,205,255);
+}
+
+.common_section h1 {
+    color: #fff;
+    font-weight: 600;
+}
