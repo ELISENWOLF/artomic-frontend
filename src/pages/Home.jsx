@@ -12,7 +12,7 @@ import heroImg from '../assets/images/hero-image.png'
 
 import Services from '../services/Services'
 import ProductList from '../components/UI/ProductList'
-import Clock from '../components/UI/Clock'
+// import Clock from '../components/UI/Clock'
 
 import counterImg from '../assets/images/counter-timer-img.jpeg'
 
