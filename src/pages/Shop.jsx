@@ -15,24 +15,24 @@ const Shop = () => {
 
   const handleFilter = (e) => {
     const filterValue = e.target.value
-    if(filterValue === "sofa"){
-      const filterdProducts = products.filter((item) => item.category === "sofa")
+    if(filterValue === "Anime"){
+      const filterdProducts = products.filter((item) => item.category === "Anime")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "mobile"){
-      const filterdProducts = products.filter((item) => item.category === "mobile")
+    if(filterValue === "Nature"){
+      const filterdProducts = products.filter((item) => item.category === "Nature")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "chair"){
-      const filterdProducts = products.filter((item) => item.category === "chair")
+    if(filterValue === "3D"){
+      const filterdProducts = products.filter((item) => item.category === "3D")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "watch"){
-      const filterdProducts = products.filter((item) => item.category === "watch")
+    if(filterValue === "Painting"){
+      const filterdProducts = products.filter((item) => item.category === "Painting")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "wireless"){
-      const filterdProducts = products.filter((item) => item.category === "wireless")
+    if(filterValue === "Potrait"){
+      const filterdProducts = products.filter((item) => item.category === "Potrait")
       setProductsData(filterdProducts)
     }
   }
@@ -56,11 +56,11 @@ const Shop = () => {
               <div className="filter_widget">
                 <select onChange={handleFilter}>
                   <option>Filter By Category</option>
-                  <option value="sofa">Sofa</option>
-                  <option value="mobile">Mobile</option>
-                  <option value="chair">Chair</option>
-                  <option value="watch">Watch</option>
-                  <option value="wireless">Wireless</option>
+                  <option value="Anime">Anime</option>
+                  <option value="Nature">Nature</option>
+                  <option value="3D">3D</option>
+                  <option value="Painting">Painting</option>
+                  <option value="Potrait">Potrait</option>
                 </select>
               </div>
             </Col>

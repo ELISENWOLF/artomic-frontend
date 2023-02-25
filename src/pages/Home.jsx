@@ -28,19 +28,19 @@ const Home = () => {
 
   useEffect(() => {
     const filteredTrendingProducts = products.filter(
-      item=> item.category === 'chair'
+      item=> item.category === 'Anime'
       )
     const filteredBestSalesProducts = products.filter(
-      item=> item.category === 'sofa'
+      item=> item.category === 'Nature'
       )
     const filteredMobileProducts = products.filter(
-      item=> item.category === 'mobile'
+      item=> item.category === '3D'
       )
     const filteredWirelessProducts = products.filter(
-      item=> item.category === 'wireless'
+      item=> item.category === 'Painting'
       )
     const filteredPopularProducts = products.filter(
-      item=> item.category === 'watch'
+      item=> item.category === 'Potrait'
       )
 
       setTrendingProducts(filteredTrendingProducts);
@@ -106,13 +106,13 @@ const Home = () => {
       <section className="timer_count">
         <Container>
           <Row>
-            <Col lg='6' md='12' className="count_down-col">
+            <Col lg='5' md='12' className="count_down-col">
 
               <div className="clock_top-content">
-                <h4 className="text-white fs-6 mb-2">What Are You Looking At!!!!</h4>
-                <h3 className="text-white fs-5 mb-3">Grab Your Favourite Pic</h3>
+                <h4 className="text-white fs-2 mb-2">What Are You Looking At!!!!</h4>
+                <h3 className="text-white fs-3 mb-3">Grab Your Favourite Pic</h3>
               </div>
-              <Clock />
+              {/* <Clock /> */}
 
               <motion.button whileTap={{ scale: 1.2 }} className="buy_btn store_btn"><Link to='/shop'>Visit Store</Link></motion.button>
             </Col>
