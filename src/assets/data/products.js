@@ -41,7 +41,7 @@ const products = [
     productName: "Monkey D Luffy",
     imgUrl: productImg01,
     category: "Anime",
-    price: 193,
+    price: 22,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:

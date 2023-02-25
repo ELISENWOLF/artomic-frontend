@@ -21,8 +21,8 @@ const Home = () => {
 
   const [trendingProducts, setTrendingProducts] = useState([])
   const [bestSalesProducts, setBestSalesProducts] = useState([])
-  const [mobilProducts, setMobileProducts] = useState([])
-  const [wirelessProducts, setWirelessProducts] = useState([])
+  const [paintinProducts, setPaintingProducts] = useState([])
+  const [potraitProducts, setPotraitProducts] = useState([])
   const [popularProducts, setPopularProducts] = useState([])
   const year = new Date().getFullYear()
 
@@ -33,10 +33,10 @@ const Home = () => {
     const filteredBestSalesProducts = products.filter(
       item=> item.category === 'Nature'
       )
-    const filteredMobileProducts = products.filter(
+    const filteredPaintingProducts = products.filter(
       item=> item.category === '3D'
       )
-    const filteredWirelessProducts = products.filter(
+    const filteredPotraitProducts = products.filter(
       item=> item.category === 'Painting'
       )
     const filteredPopularProducts = products.filter(
@@ -45,8 +45,8 @@ const Home = () => {
 
       setTrendingProducts(filteredTrendingProducts);
       setBestSalesProducts(filteredBestSalesProducts);
-      setMobileProducts(filteredMobileProducts);
-      setWirelessProducts(filteredWirelessProducts);
+      setPaintingProducts(filteredPaintingProducts);
+      setPotraitProducts(filteredPotraitProducts);
       setPopularProducts(filteredPopularProducts);
   },[])
 
@@ -129,8 +129,8 @@ const Home = () => {
           <Col lg="12" className="text-center mb-4">
             <h2 className="section_title">New Arrivals</h2>
           </Col>
-          <ProductList data={mobilProducts}/>
-          <ProductList data={wirelessProducts} />
+          <ProductList data={paintinProducts}/>
+          <ProductList data={potraitProducts} />
         </Row>
       </Container>
     </section>

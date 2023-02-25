@@ -47,7 +47,7 @@ const Shop = () => {
   return (
     <Helmet title='Shop' >
         
-      <CommonSection title='Products'/>
+      <CommonSection title='Products' className="#"/>
 
       <section>
         <Container>
