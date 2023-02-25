@@ -12,7 +12,7 @@ const ProductDetails = () => {
 
   const {id} = useParams()
   const product = products.find(item => item.id === id)
-  const {imgUrl, productName, price, avgRating, review, shortDesc, description } = product
+  const {imgUrl, productName, price, avgRating, shortDesc } = product
 
   return (
     <Helmet title={productName}>
