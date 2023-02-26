@@ -72,7 +72,7 @@ const Home = () => {
             </Col>
             <Col lg="3" md="6" >
               <div className="hero_img">
-                <motion.img animate={{rotateY: 360}} transition={{duration: 5, repeat: Infinity, repeatDelay: 3}} src={heroImg} alt="" />
+                <motion.img animate={{rotateY: 360}} transition={{duration: 12, repeat: Infinity, repeatDelay: 5}} src={heroImg} alt="" />
               </div>
             </Col>
           </Row>
