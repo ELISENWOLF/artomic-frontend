@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-import { Link, NavLink } from 'react-router-dom'
+import {  NavLink, useNavigate } from 'react-router-dom'
 import './header.css'
 
 import { motion } from 'framer-motion'
@@ -19,6 +19,10 @@ const nav_links = [
   {
     path: 'shop',
     display: 'Shop'
+  },
+  {
+    path: 'cart',
+    display: 'Cart'
   }
 ];
 
@@ -29,6 +33,7 @@ const Header = () => {
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
   const menuRef = useRef(null)
+  const navigate = useNavigate()
 
   const stickyHeaderFunc = () => {
     window.addEventListener('scroll', () => {
@@ -47,6 +52,9 @@ const Header = () => {
   })
 
   const menuToggle = () => menuRef.current.classList.toggle('active_menu')
+  const navigateToCart = () => {
+    navigate("/cart")
+  }
 
   return (
     <header className="header" ref={headerRef}>
@@ -80,11 +88,9 @@ const Header = () => {
             </div>
 
             <div className="nav_icons">
-              <span className="cart_icon">
-                <Link to="/cart">
+              <span className="cart_icon" onClick={navigateToCart}>
                 <i class="ri-shopping-bag-line"></i>
                 <span className="badge">{totalQuantity}</span>
-                </Link>
               </span>
               <span>
                 <motion.img whileTap={{ scale:1.2 }} src={userIcon} alt="" />
