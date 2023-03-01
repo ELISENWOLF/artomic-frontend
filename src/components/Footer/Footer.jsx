@@ -26,24 +26,28 @@ const Footer = () => {
               </p>
           </Col>
 
-          <Col lg='3' md='3' className="mb-4">
+          <Col lg='3' md='3' className="mb-1">
             <div className="footer_quick-links">
               <h4 className="quick_links-title">Top Categories</h4>
               <ListGroup>
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to='#'>Mobile Phones</Link>
+                  <Link to='#'>Anime</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to='#'>Modern Sofa</Link>
+                  <Link to='#'>Nature</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to='#'>Arm Chair</Link>
+                  <Link to='#'>Potrait</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className="ps-0 border-0">
-                  <Link to='#'>Smart Watches</Link>
+                  <Link to='#'>Painting</Link>
+                </ListGroupItem>
+
+                <ListGroupItem className="ps-0 border-0">
+                  <Link to='#'>3D</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>

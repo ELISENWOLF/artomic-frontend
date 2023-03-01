@@ -3,7 +3,7 @@ import '../styles/cart.css'
 import Helmet from '../components/Helmet/Helmet' 
 import CommonSection from '../components/UI/CommonSection'
 import { Container, Row, Col } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { motion } from 'framer-motion'
 import { cartActions } from '../redux/slices/cartSlice'
@@ -11,9 +11,18 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const Cart = () => {
 
+  const navigate = useNavigate()
+
   const cartItems = useSelector(state => state.cart.cartItems)
   const totalAmount = useSelector(state => state.cart.totalAmount)
   
+  const goToShop = () => {
+    navigate('/shop')
+  }
+
+  const goToCheckout = () => {
+    navigate('/checkout')
+  }
 
   return (
     <Helmet title='Cart'>
@@ -60,12 +69,12 @@ const Cart = () => {
               </div>
               <p className="fs-6 mt-2">taxes and shipping  will calculate in checkout</p>
               <div>
-                <button className="buy_btn w-100">
-                  <Link to='/checkout'>Buy Now</Link>
-                </button>
-                <button className="buy_btn w-100 mt-3">
-                  <Link to='/shop'>Continue Shopping</Link>
-                </button>
+                <motion.button whileTap={{scale: 1.1}} onClick={goToCheckout} className="buy_btn w-100">
+                  Buy Now
+                </motion.button>
+                <motion.button whileTap={{scale: 1.1}} onClick={goToShop} className="buy_btn w-100 mt-3">
+                  Continue Shopping
+                </motion.button>
               </div>
             </Col>
           </Row>

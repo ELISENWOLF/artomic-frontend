@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import products from '../assets/data/products'
 
@@ -12,12 +12,13 @@ import heroImg from '../assets/images/hero-image.png'
 
 import Services from '../services/Services'
 import ProductList from '../components/UI/ProductList'
-// import Clock from '../components/UI/Clock'
 
 import counterImg from '../assets/images/counter-timer-img.jpeg'
 
 
 const Home = () => {
+
+  const navigate = useNavigate()
 
   const [trendingProducts, setTrendingProducts] = useState([])
   const [bestSalesProducts, setBestSalesProducts] = useState([])
@@ -50,6 +51,10 @@ const Home = () => {
       setPopularProducts(filteredPopularProducts);
   },[])
 
+  const goToShop = () => {
+    navigate('/shop')
+  }
+
   return (
     <Helmet title={'Home'}>
       <section className="hero_section">
@@ -65,8 +70,8 @@ const Home = () => {
                   sint illo distinctio, corrupti nisi delectus voluptates, enim 
                   dolorem temporibus architecto in blanditiis qui!
                 </p>
-                <motion.button whileTap={{ scale:1.2 }} className="buy_btn">
-                  <Link to='/shop'>SHOP NOW</Link>
+                <motion.button whileTap={{ scale:1.1 }} onClick={goToShop} className="buy_btn">
+                  SHOP NOW
                 </motion.button>
               </div>
             </Col>
@@ -114,7 +119,7 @@ const Home = () => {
               </div>
               {/* <Clock /> */}
 
-              <motion.button whileTap={{ scale: 1.2 }} className="buy_btn store_btn"><Link to='/shop'>Visit Store</Link></motion.button>
+              <motion.button whileTap={{ scale: 1.2 }} onClick={goToShop} className="buy_btn store_btn">Visit Store</motion.button>
             </Col>
             <Col lg='5' md='12' className="text-end counter_img">
               <img src={counterImg} alt="" />

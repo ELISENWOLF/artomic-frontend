@@ -16,6 +16,10 @@
   --heading-text-color: #0a1d37;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 /* reset browser default */
 * {
   margin: 0;
