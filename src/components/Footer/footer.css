@@ -1,45 +1,44 @@
 .footer {
-    padding-top: 60px;
-    padding-bottom: 30px;
-    background: var(--primary-color);
+  padding-top: 60px;
+  padding-bottom: 30px;
+  background: var(--primary-color);
 }
 
 .footer_text {
-    line-height: 30px;
-    color: rgba(255, 255, 255, 0.7);
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer_quick-links ul li {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 .footer_quick-links ul li a {
-    color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .quick_links-title {
-    margin-bottom: 20px;
-    color: #fff;
-    font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 1.1rem;
 }
 
-.footer_contact li span, 
+.footer_contact li span,
 .footer_contact li p {
- color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer_contact li span {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .footer_contact li p {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .footer_copyright {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    margin-top: 50px;
-    text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-top: 50px;
+  text-align: center;
 }
-

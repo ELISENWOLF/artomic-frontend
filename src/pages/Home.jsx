@@ -29,27 +29,27 @@ const Home = () => {
 
   useEffect(() => {
     const filteredTrendingProducts = products.filter(
-      item=> item.category === 'Anime'
-      )
+      item => item.category === 'Anime'
+    )
     const filteredBestSalesProducts = products.filter(
-      item=> item.category === 'Nature'
-      )
+      item => item.category === 'Nature'
+    )
     const filteredPaintingProducts = products.filter(
-      item=> item.category === '3D'
-      )
+      item => item.category === '3D'
+    )
     const filteredPotraitProducts = products.filter(
-      item=> item.category === 'Painting'
-      )
+      item => item.category === 'Painting'
+    )
     const filteredPopularProducts = products.filter(
-      item=> item.category === 'Potrait'
-      )
+      item => item.category === 'Potrait'
+    )
 
-      setTrendingProducts(filteredTrendingProducts);
-      setBestSalesProducts(filteredBestSalesProducts);
-      setPaintingProducts(filteredPaintingProducts);
-      setPotraitProducts(filteredPotraitProducts);
-      setPopularProducts(filteredPopularProducts);
-  },[])
+    setTrendingProducts(filteredTrendingProducts);
+    setBestSalesProducts(filteredBestSalesProducts);
+    setPaintingProducts(filteredPaintingProducts);
+    setPotraitProducts(filteredPotraitProducts);
+    setPopularProducts(filteredPopularProducts);
+  }, [])
 
   const goToShop = () => {
     navigate('/shop')
@@ -65,19 +65,19 @@ const Home = () => {
                 <p className="hero_subtitle">Trending product in {year}</p>
                 <h2>Make Your Room More Attractive</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                  Facere deleniti sit doloribus, incidunt rerum aperiam mollitia 
-                  sint illo distinctio, corrupti nisi delectus voluptates, enim 
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Facere deleniti sit doloribus, incidunt rerum aperiam mollitia
+                  sint illo distinctio, corrupti nisi delectus voluptates, enim
                   dolorem temporibus architecto in blanditiis qui!
                 </p>
-                <motion.button whileTap={{ scale:1.1 }} onClick={goToShop} className="buy_btn">
+                <motion.button whileTap={{ scale: 1.1 }} onClick={goToShop} className="buy_btn">
                   SHOP NOW
                 </motion.button>
               </div>
             </Col>
             <Col lg="3" md="6" >
               <div className="hero_img">
-                <motion.img animate={{rotateY: 360}} transition={{duration: 12, repeat: Infinity, repeatDelay: 5}} src={heroImg} alt="" />
+                <motion.img animate={{ rotateY: 360 }} transition={{ duration: 12, repeat: Infinity, repeatDelay: 5 }} src={heroImg} alt="" />
               </div>
             </Col>
           </Row>
@@ -92,7 +92,7 @@ const Home = () => {
             <Col lg="12" className="text-center mb-4">
               <h2 className="section_title">Trending Products</h2>
             </Col>
-            <ProductList data={trendingProducts}/>
+            <ProductList data={trendingProducts} />
           </Row>
         </Container>
       </section>
@@ -100,11 +100,11 @@ const Home = () => {
       <section className="best_sales">
         <Container>
           <Row>
-              <Col lg="12" className="text-center mb-4">
-                <h2 className="section_title">Best Sales</h2>
-              </Col>
-              <ProductList data={bestSalesProducts}/>
-            </Row>
+            <Col lg="12" className="text-center mb-4">
+              <h2 className="section_title">Best Sales</h2>
+            </Col>
+            <ProductList data={bestSalesProducts} />
+          </Row>
         </Container>
       </section>
 
@@ -128,28 +128,28 @@ const Home = () => {
         </Container>
       </section>
 
-    <section className="new_arrivals">
-      <Container>
-        <Row>
-          <Col lg="12" className="text-center mb-4">
-            <h2 className="section_title">New Arrivals</h2>
-          </Col>
-          <ProductList data={paintinProducts}/>
-          <ProductList data={potraitProducts} />
-        </Row>
-      </Container>
-    </section>
+      <section className="new_arrivals">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center mb-4">
+              <h2 className="section_title">New Arrivals</h2>
+            </Col>
+            <ProductList data={paintinProducts} />
+            <ProductList data={potraitProducts} />
+          </Row>
+        </Container>
+      </section>
 
-    <section className="popular_category">
-    <Container>
-        <Row>
-          <Col lg="12" className="text-center mb-4">
-            <h2 className="section_title">Popular in Category</h2>
-          </Col>
-          <ProductList data={popularProducts}/>
-        </Row>
-      </Container>
-    </section>
+      <section className="popular_category">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center mb-4">
+              <h2 className="section_title">Popular in Category</h2>
+            </Col>
+            <ProductList data={popularProducts} />
+          </Row>
+        </Container>
+      </section>
 
     </Helmet>
   )

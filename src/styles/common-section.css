@@ -1,25 +1,25 @@
 .common_section {
-    background: url('../assets/images/common-section.png') no-repeat center center;;
-    background-size: contain;
-    background-position: 90%;
-    padding: 80px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(139,175,205,255);
+  background: url("../assets/images/common-section.png") no-repeat center center;
+  background-size: contain;
+  background-position: 90%;
+  padding: 80px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(139, 175, 205, 255);
 }
 
 .common_section h1 {
-    color: #fff;
-    font-weight: 600;
+  color: #fff;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 768px) {
-    .common_section {
-        padding: 50px 0px;
-    }
+  .common_section {
+    padding: 50px 0px;
+  }
 
-    .common_section h1 {
-        font-size: 1.4rem;
-    }
+  .common_section h1 {
+    font-size: 1.4rem;
+  }
 }

@@ -588,7 +588,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
-  },{
+  }, {
     id: "26",
     productName: "Scattered Painting",
     imgUrl: productImg26,
@@ -609,7 +609,7 @@ const products = [
       },
     ],
     avgRating: 4.7,
-  },{
+  }, {
     id: "27",
     productName: "Eagle Ink Painting",
     imgUrl: productImg27,
@@ -743,6 +743,6 @@ const products = [
     ],
     avgRating: 4.7,
   }
-  ];
+];
 
 export default products;

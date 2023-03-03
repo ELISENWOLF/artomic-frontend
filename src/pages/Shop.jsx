@@ -11,27 +11,27 @@ import ProductList from '../components/UI/ProductList'
 
 const Shop = () => {
 
-  const [ productsData, setProductsData ] = useState(products)
+  const [productsData, setProductsData] = useState(products)
 
   const handleFilter = (e) => {
     const filterValue = e.target.value
-    if(filterValue === "Anime"){
+    if (filterValue === "Anime") {
       const filterdProducts = products.filter((item) => item.category === "Anime")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "Nature"){
+    if (filterValue === "Nature") {
       const filterdProducts = products.filter((item) => item.category === "Nature")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "3D"){
+    if (filterValue === "3D") {
       const filterdProducts = products.filter((item) => item.category === "3D")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "Painting"){
+    if (filterValue === "Painting") {
       const filterdProducts = products.filter((item) => item.category === "Painting")
       setProductsData(filterdProducts)
     }
-    if(filterValue === "Potrait"){
+    if (filterValue === "Potrait") {
       const filterdProducts = products.filter((item) => item.category === "Potrait")
       setProductsData(filterdProducts)
     }
@@ -50,8 +50,8 @@ const Shop = () => {
 
   return (
     <Helmet title='Shop' >
-        
-      <CommonSection title='Products' className="#"/>
+
+      <CommonSection title='Products' className="#" />
 
       <section>
         <Container>
@@ -79,7 +79,7 @@ const Shop = () => {
             </Col>
             <Col lg='6' md='12'>
               <div className="search_box">
-                <input type="text" placeholder="Search....." onChange={handleSearch}/>
+                <input type="text" placeholder="Search....." onChange={handleSearch} />
                 <span><i class="ri-search-line"></i></span>
               </div>
             </Col>
@@ -91,8 +91,8 @@ const Shop = () => {
         <Container>
           <Row>
             {
-              productsData.length === 0 
-                ? <h1 className="text-center fs-4">No products are found</h1> 
+              productsData.length === 0
+                ? <h1 className="text-center fs-4">No products are found</h1>
                 : <ProductList data={productsData} />
             }
           </Row>

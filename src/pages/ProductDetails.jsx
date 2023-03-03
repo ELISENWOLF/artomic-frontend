@@ -51,22 +51,22 @@ const ProductDetails = () => {
     toast.success('Review Submitted')
   }
 
-    const addToCart =  () => {
-      dispatch(
-        cartActions.addItem({
-          id,
-          image:imgUrl,
-          productName,
-          price
-        })
-      )
+  const addToCart = () => {
+    dispatch(
+      cartActions.addItem({
+        id,
+        image: imgUrl,
+        productName,
+        price
+      })
+    )
 
-      toast.success('Product added successfully')
-    }
+    toast.success('Product added successfully')
+  }
 
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [product])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [product])
 
   return (
     <Helmet title={productName}>
@@ -99,9 +99,9 @@ const ProductDetails = () => {
                 </div>
                 <p className="mt-3">{shortDesc}</p>
 
-                <motion.button 
-                  whileTap={{ scale: 1.1 }} 
-                  className="buy_btn" 
+                <motion.button
+                  whileTap={{ scale: 1.1 }}
+                  className="buy_btn"
                   onClick={addToCart}
                 >
                   Add to Cart
@@ -150,33 +150,33 @@ const ProductDetails = () => {
                           <h4>Let us Know your experience</h4>
                           <form action="" onSubmit={submitHandler}>
                             <div className="form_group">
-                              <input 
-                                type="text" 
-                                placeholder="Enter name" 
+                              <input
+                                type="text"
+                                placeholder="Enter name"
                                 ref={reviewUser}
                                 required
                               />
                             </div>
                             <div className="form_group d-flex align-items-center gap-5 rating_group">
-                              <motion.span whileTap={{scale: 1.1}} onClick={() => setRating(1)}>1<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{scale: 1.1}} onClick={() => setRating(2)}>2<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{scale: 1.1}} onClick={() => setRating(3)}>3<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{scale: 1.1}} onClick={() => setRating(4)}>4<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{scale: 1.1}} onClick={() => setRating(5)}>5<i class="ri-star-s-fill" /></motion.span>
+                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(1)}>1<i class="ri-star-s-fill" /></motion.span>
+                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(2)}>2<i class="ri-star-s-fill" /></motion.span>
+                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(3)}>3<i class="ri-star-s-fill" /></motion.span>
+                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(4)}>4<i class="ri-star-s-fill" /></motion.span>
+                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(5)}>5<i class="ri-star-s-fill" /></motion.span>
                             </div>
                             <div className="form_group">
                               <textarea
-                                ref={reviewMsg} 
-                                rows={4} 
-                                type="text" 
-                                placeholder="Review us" 
+                                ref={reviewMsg}
+                                rows={4}
+                                type="text"
+                                placeholder="Review us"
                                 required
                               />
                             </div>
 
-                            <motion.button 
-                              whileTap={{scale: 1.1}} 
-                              type='submit' 
+                            <motion.button
+                              whileTap={{ scale: 1.1 }}
+                              type='submit'
                               className="buy_btn"
                             >
                               Submit
@@ -188,11 +188,11 @@ const ProductDetails = () => {
                   )
               }
             </Col>
-            
+
             <Col lg="12" className='mt-5'>
               <h2 className="related_title">You might also like</h2>
             </Col>
-            <ProductList data={relatedProducts}/>
+            <ProductList data={relatedProducts} />
           </Row>
         </Container>
       </section>

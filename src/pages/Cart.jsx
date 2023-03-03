@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/cart.css'
-import Helmet from '../components/Helmet/Helmet' 
+import Helmet from '../components/Helmet/Helmet'
 import CommonSection from '../components/UI/CommonSection'
 import { Container, Row, Col } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +15,7 @@ const Cart = () => {
 
   const cartItems = useSelector(state => state.cart.cartItems)
   const totalAmount = useSelector(state => state.cart.totalAmount)
-  
+
   const goToShop = () => {
     navigate('/shop')
   }
@@ -32,10 +32,10 @@ const Cart = () => {
           <Row>
             <Col lg='9'>
               {
-                cartItems.length === 0 
-                ? (
-                  <h2 className="fs-4 text-center">No item added to the cart</h2>
-                  ) 
+                cartItems.length === 0
+                  ? (
+                    <h2 className="fs-4 text-center">No item added to the cart</h2>
+                  )
                   : (
                     <table className='table bordered'>
                       <thead>
@@ -49,16 +49,16 @@ const Cart = () => {
                       </thead>
 
                       <tbody>
-                       {
-                        cartItems.map((item, index) => (
-                          <Tr item={item} key={index}/>
-                        ))
-                       }
+                        {
+                          cartItems.map((item, index) => (
+                            <Tr item={item} key={index} />
+                          ))
+                        }
                       </tbody>
                     </table>
-                    )
+                  )
               }
-              
+
             </Col>
             <Col lg='3'>
               <div>
@@ -69,10 +69,10 @@ const Cart = () => {
               </div>
               <p className="fs-6 mt-2">taxes and shipping  will calculate in checkout</p>
               <div>
-                <motion.button whileTap={{scale: 1.1}} onClick={goToCheckout} className="buy_btn w-100">
+                <motion.button whileTap={{ scale: 1.1 }} onClick={goToCheckout} className="buy_btn w-100">
                   Buy Now
                 </motion.button>
-                <motion.button whileTap={{scale: 1.1}} onClick={goToShop} className="buy_btn w-100 mt-3">
+                <motion.button whileTap={{ scale: 1.1 }} onClick={goToShop} className="buy_btn w-100 mt-3">
                   Continue Shopping
                 </motion.button>
               </div>
@@ -84,7 +84,7 @@ const Cart = () => {
   )
 }
 
-const  Tr = ({item}) => {
+const Tr = ({ item }) => {
 
   const dispatch = useDispatch()
   const deleteProduct = () => {
@@ -92,12 +92,12 @@ const  Tr = ({item}) => {
   }
 
   return <tr >
-  <td><img src={item.imgUrl} alt="" /></td>
-  <td>{item.productName}</td>
-  <td>${item.price}</td>
-  <td>{item.quantity}</td>
-  <td><motion.i onClick={deleteProduct} whileTap={{scale: 1.1}} class="ri-delete-bin-line"></motion.i></td>
-</tr>
+    <td><img src={item.imgUrl} alt="" /></td>
+    <td>{item.productName}</td>
+    <td>${item.price}</td>
+    <td>{item.quantity}</td>
+    <td><motion.i onClick={deleteProduct} whileTap={{ scale: 1.1 }} class="ri-delete-bin-line"></motion.i></td>
+  </tr>
 }
 
 export default Cart

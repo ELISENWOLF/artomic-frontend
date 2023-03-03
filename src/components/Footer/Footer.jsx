@@ -19,11 +19,11 @@ const Footer = () => {
               </div>
             </div>
             <p className="footer_text mt-4">
-                Lorem ipsum dolor sit amet consectetur,
-                adipisicing elit. Consectetur cupiditate 
-                atque corporis maxime accusantium iste deleniti 
-                explicabo, eos fugit earum.
-              </p>
+              Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Consectetur cupiditate
+              atque corporis maxime accusantium iste deleniti
+              explicabo, eos fugit earum.
+            </p>
           </Col>
 
           <Col lg='3' md='3' className="mb-1">
