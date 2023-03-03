@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/cart.css'
 import Helmet from '../components/Helmet/Helmet'
 import CommonSection from '../components/UI/CommonSection'
@@ -23,6 +23,10 @@ const Cart = () => {
   const goToCheckout = () => {
     navigate('/checkout')
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <Helmet title='Cart'>
