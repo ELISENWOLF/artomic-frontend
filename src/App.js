@@ -10,4 +10,4 @@ const App = () => {
 
 export default App
 
-/*53.22 */
+/*30.46 */

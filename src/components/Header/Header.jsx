@@ -124,11 +124,12 @@ const Header = () => {
                 >
                   {
                     currentUser ? (
-                       <motion.span whileHover={{scale:1.1}} onClick={logout}>Logout</motion.span> 
+                       <motion.p className='text-center' whileHover={{scale:1.1}} onClick={logout}>Logout</motion.p> 
                        ) : (
                        <div className='d-flex align-items-center justify-center flex-column'>
                         <Link to='/signup'><motion.p whileHover={{scale: 1.1}}>Signup</motion.p></Link>
                         <Link to='/login'><motion.p whileHover={{scale: 1.1}}>Login</motion.p></Link>
+                        <Link to='/dashboard'><motion.p whileHover={{scale: 1.1}}>Dashboard</motion.p></Link>
                       </div>
                   )}
                 </div>

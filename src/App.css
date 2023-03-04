@@ -1,5 +1,6 @@
 /* google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Source+Sans+Pro&display=swap');
 
 /*  css variables */
 :root {
@@ -9,6 +10,7 @@
   --card-bg-02: #d6e5fb;
   --card-bg-03: #ceebe9;
   --card-bg-04: #e2f2b2;
+  --card-bg-05: rgba(254, 231, 56, 0.775);
   --primary-color: #0e0e20;
   --hero-bg: #fee638;
   --heading-fontSize: 2rem;
@@ -28,7 +30,7 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--bg-01);
 }
 
