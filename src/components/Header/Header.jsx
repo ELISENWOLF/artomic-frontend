@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import './header.css'
 
 import { motion } from 'framer-motion'
@@ -102,7 +102,7 @@ const Header = () => {
                   alt=""
                   onClick={toggleProfileActions}
                 />
-
+                  <Link to='/login'>login</Link>
                 <div 
                   className="profile_actions" 
                   ref={profileActionRef} 
