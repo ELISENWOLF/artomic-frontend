@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 
-import { NavLink, useNavigate, Link } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './header.css'
 
 import { motion } from 'framer-motion'
@@ -10,10 +10,6 @@ import userIcon from '../../assets/images/user-icon.png'
 
 import { Container, Row } from 'reactstrap'
 import { useSelector } from 'react-redux'
-import useAuth from '../../custom-hooks/useAuth'
-import { signOut } from 'firebase/auth'
-import { auth } from '../../firebase.config'
-import { toast } from 'react-toastify'
 
 const nav_links = [
   {
@@ -37,7 +33,6 @@ const Header = () => {
 
   const menuRef = useRef(null)
   const navigate = useNavigate()
-  const { currentUser } = useAuth()
 
   const stickyHeaderFunc = () => {
     window.addEventListener('scroll', () => {
@@ -46,15 +41,6 @@ const Header = () => {
       } else {
         headerRef.current.classList.remove('sticky_header')
       }
-    })
-  }
-
-  const logout = () => {
-    signOut(auth).then(()=> {
-      toast.success('Logged out')
-      navigate('/')
-    }).catch(err => {
-      toast.error(err.message)
     })
   }
 
@@ -112,7 +98,7 @@ const Header = () => {
               <div className='profile'>
                 <motion.img 
                   whileTap={{ scale: 1.2 }} 
-                  src={ currentUser ? currentUser.photoURL : userIcon} 
+                  src={userIcon} 
                   alt=""
                   onClick={toggleProfileActions}
                 />
@@ -122,16 +108,6 @@ const Header = () => {
                   ref={profileActionRef} 
                   onClick={toggleProfileActions}
                 >
-                  {
-                    currentUser ? (
-                       <motion.p className='text-center' whileHover={{scale:1.1}} onClick={logout}>Logout</motion.p> 
-                       ) : (
-                       <div className='d-flex align-items-center justify-center flex-column'>
-                        <Link to='/signup'><motion.p whileHover={{scale: 1.1}}>Signup</motion.p></Link>
-                        <Link to='/login'><motion.p whileHover={{scale: 1.1}}>Login</motion.p></Link>
-                        <Link to='/dashboard'><motion.p whileHover={{scale: 1.1}}>Dashboard</motion.p></Link>
-                      </div>
-                  )}
                 </div>
               </div>
               <div className="mobile_menu">

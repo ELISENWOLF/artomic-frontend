@@ -4,12 +4,12 @@ import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCTczr-hyEdHDti1JGpsaKZKHtTYbIXBPU",
-    authDomain: "artomic-1d678.firebaseapp.com",
-    projectId: "artomic-1d678",
-    storageBucket: "artomic-1d678.appspot.com",
-    messagingSenderId: "1052779524976",
-    appId: "1:1052779524976:web:1eeb8eee398757bc4855b5"
+  apiKey: "AIzaSyAvWEf3Kk_gly8tr_8jzmTZAOg4l-ixN0o",
+  authDomain: "artomic-ecommerce.firebaseapp.com",
+  projectId: "artomic-ecommerce",
+  storageBucket: "artomic-ecommerce.appspot.com",
+  messagingSenderId: "283430494883",
+  appId: "1:283430494883:web:5798d2a5a6c02ba9355516"
 };
 
 // Initialize Firebase
@@ -17,7 +17,5 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 export const db = getFirestore(app)
 export const storage = getStorage(app)
-
-
 
 export default app

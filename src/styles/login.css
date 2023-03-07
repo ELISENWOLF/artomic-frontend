@@ -23,6 +23,7 @@
 }
 
 .auth_form input[type="file"] {
+  background: var(--primary-color);
   color: #fff;
   cursor: pointer;
 }
