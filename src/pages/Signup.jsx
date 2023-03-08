@@ -34,14 +34,25 @@ const Signup = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
       const user = userCredential.user
 
-      const storageRef = ref(storage, `images/${Date.now() + username}`)
+      const storagePath = 'images/' + username
+
+      const storageRef = ref(storage, storagePath)
       const uploadTask = uploadBytesResumable(storageRef, file)
 
-      uploadTask.on((error) => {
+      uploadTask.on('state_changed',(snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is '+ progress +' % done');
+      },
+
+      (error) => {
         toast.error(error.message)
-      }, () => {
+      }, 
+      
+      () => {
         getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-          
+
+          // console.log('File Path',downloadURL);
+
           //update user profile
           await updateProfile(user, {
             displayName: username,

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import './header.css'
@@ -10,6 +10,10 @@ import userIcon from '../../assets/images/user-icon.png'
 
 import { Container, Row } from 'reactstrap'
 import { useSelector } from 'react-redux'
+import useAuth from '../../custom-hooks/useAuth'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase.config'
+import { toast } from 'react-toastify'
 
 const nav_links = [
   {
@@ -33,6 +37,8 @@ const Header = () => {
 
   const menuRef = useRef(null)
   const navigate = useNavigate()
+  const {currentUser} = useAuth()
+  const [admin, setAdmin] = useState(true)
 
   const stickyHeaderFunc = () => {
     window.addEventListener('scroll', () => {
@@ -41,6 +47,15 @@ const Header = () => {
       } else {
         headerRef.current.classList.remove('sticky_header')
       }
+    })
+  }
+
+  const logout = () => {
+    signOut(auth).then(()=> {
+      toast.success('Logged out')
+      navigate('/')
+    }).catch(err => {
+      toast.error(err.message)
     })
   }
 
@@ -56,7 +71,13 @@ const Header = () => {
   }
 
   const toggleProfileActions = () => {
+    setAdmin(true)
+
     profileActionRef.current.classList.toggle('show_profileActions')
+
+    if(currentUser.displayName === 'admin'){
+      setAdmin(false)
+    }
   }
 
   return (
@@ -98,16 +119,35 @@ const Header = () => {
               <div className='profile'>
                 <motion.img 
                   whileTap={{ scale: 1.2 }} 
-                  src={userIcon} 
+                  src={currentUser ? currentUser.photoURL : userIcon} 
                   alt=""
                   onClick={toggleProfileActions}
                 />
-                  <Link to='/login'>login</Link>
                 <div 
                   className="profile_actions" 
                   ref={profileActionRef} 
                   onClick={toggleProfileActions}
                 >
+                   {
+                    currentUser ? (
+
+                      admin ? (
+                        <>
+                        <motion.p className='text-center' whileHover={{scale:1.1}} onClick={logout}>Logout</motion.p> 
+                        </>
+                      ) : (
+                        <>
+                        <motion.p className='text-center' whileHover={{scale:1.1}} onClick={logout}>Logout</motion.p> 
+                        <Link to='/dashboard'><motion.p className='text-center' whileHover={{scale:1.1}}>Admin</motion.p></Link>
+                        </>
+                      )
+                       
+                       ) : (
+                       <div className='d-flex align-items-center justify-center flex-column'>
+                        <Link to='/signup'><motion.p whileHover={{scale: 1.1}}>Signup</motion.p></Link>
+                        <Link to='/login'><motion.p whileHover={{scale: 1.1}}>Login</motion.p></Link>
+                      </div>
+                  )}
                 </div>
               </div>
               <div className="mobile_menu">
