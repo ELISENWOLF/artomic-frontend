@@ -71,7 +71,7 @@ const Signup = () => {
 
     setLoading(false)
     toast.success('Account created')
-    navigate('/login')
+    navigate('/checkout')
 
     }catch(error){
       setLoading(false)

@@ -12,7 +12,7 @@ const AddProducts = () => {
   const [ enterTitle, setEnterTitle ] = useState('')
   const [ enterShortDesc, setEnterShortDesc ] = useState('')
   const [ enterDesc, setEnterDesc ] = useState('')
-  const [ enterCategory, setEnterCategory ] = useState('')
+  const [ enterCategory, setEnterCategory ] = useState('Category not selected')
   const [ enterPrice, setEnterPrice ] = useState('')
   const [ enterProductImg, setEnterProductImg ] = useState(null)
   const [ loading, setLoading ] =  useState(false)
@@ -27,7 +27,7 @@ const AddProducts = () => {
 
     try{
 
-      const docRef = await collection(db, 'products')
+      const docRef = collection(db, 'products')
 
       const productPath = 'productImages/'  + enterProductImg.name
 
@@ -132,6 +132,7 @@ const AddProducts = () => {
                     onChange={e => setEnterCategory(e.target.value)}
                     required
                   >
+                    <option>Select Category</option>
                     <option value="Anime">Anime</option>
                     <option value="Nature">Nature</option>
                     <option value="3D">3D</option>

@@ -1,14 +1,29 @@
-import React from 'react'
-import { Container, Row, Col } from 'reactstrap'
-import productImg from '../assets/images/Anime-3.jpeg'
+import React from "react"
+import { Container, Row, Col } from "reactstrap"
+import { db } from "../firebase.config"
+import { doc, deleteDoc } from "firebase/firestore"
+import useGetData from "../custom-hooks/useGetData"
+import { motion } from "framer-motion"
+import { toast } from 'react-toastify'
 
 const AllProducts = () => {
+
+  const {data: productsData, loading} = useGetData("products")
+
+  const deleteProduct = async id => {
+
+    const docRef = doc(db, "products", id)
+
+    await deleteDoc(docRef)
+    toast.success("Deleted")
+  }
+
   return (
     <section>
       <Container>
         <Row>
-          <Col lg='12'>
-            <table className='table'>
+          <Col lg="12">
+            <table className="table">
               <thead>
                 <tr>
                   <th>Image</th>
@@ -19,13 +34,33 @@ const AllProducts = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><img src={productImg} alt="" /></td>
-                  <td>Zoro</td>
-                  <td>Anime</td>
-                  <td>$20</td>
-                  <td><button className='btn btn-danger'>Delete</button></td>
-                </tr>
+                {
+                  loading ? (
+                    <h4 className="fw-bold py-5 text-center">Loading.....</h4>
+                  ) : (
+                    <>
+                      {
+                        productsData.map((item)  => (
+                          <tr key={item.id}>
+                            <td><img src={item.imgUrl} alt="" /></td>
+                            <td>{item.title}</td>
+                            <td>{item.category}</td>
+                            <td>${item.price}</td>
+                            <td>
+                              <motion.button
+                                whileTap={{scale: 1.1}} 
+                                onClick={() => {deleteProduct(item.id)}} 
+                                className="btn btn-danger"
+                              >
+                                Delete
+                              </motion.button>
+                            </td>
+                          </tr>
+                        ))
+                      }
+                    </>
+                  )
+                }
               </tbody>
             </table>
           </Col>
