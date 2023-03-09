@@ -6,12 +6,14 @@ import { Container, Row, Col } from 'reactstrap'
 
 import '../styles/shop.css'
 
-import products from '../assets/data/products'
 import ProductList from '../components/UI/ProductList'
+import useGetData from '../custom-hooks/useGetData'
 
 const Shop = () => {
 
+  const {data: products} = useGetData('products')
   const [productsData, setProductsData] = useState(products)
+
 
   const handleFilter = (e) => {
     const filterValue = e.target.value
@@ -93,7 +95,13 @@ const Shop = () => {
             {
               productsData.length === 0
                 ? <h1 className="text-center fs-4">No products are found</h1>
-                : <ProductList data={productsData} />
+                : (
+                  <>
+                    {/* <ProductList data={products} /> */}
+                    <ProductList data={productsData} />
+                  </>
+                )
+                
             }
           </Row>
         </Container>
