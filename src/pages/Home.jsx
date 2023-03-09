@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import products from '../assets/data/products'
 
 import Helmet from '../components/Helmet/Helmet'
 import '../styles/home.css'
@@ -15,10 +14,12 @@ import ProductList from '../components/UI/ProductList'
 
 import counterImg from '../assets/images/counter-timer-img.jpeg'
 
+import useGetData from '../custom-hooks/useGetData'
+
 
 const Home = () => {
 
-  const navigate = useNavigate()
+  const {data: products, loading} = useGetData('products')
 
   const [trendingProducts, setTrendingProducts] = useState([])
   const [bestSalesProducts, setBestSalesProducts] = useState([])
@@ -26,6 +27,8 @@ const Home = () => {
   const [potraitProducts, setPotraitProducts] = useState([])
   const [popularProducts, setPopularProducts] = useState([])
   const year = new Date().getFullYear()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const filteredTrendingProducts = products.filter(
@@ -49,7 +52,7 @@ const Home = () => {
     setPaintingProducts(filteredPaintingProducts);
     setPotraitProducts(filteredPotraitProducts);
     setPopularProducts(filteredPopularProducts);
-  }, [])
+  }, [products])
 
   const goToShop = () => {
     navigate('/shop')
@@ -92,7 +95,13 @@ const Home = () => {
             <Col lg="12" className="text-center mb-4">
               <h2 className="section_title">Trending Products</h2>
             </Col>
-            <ProductList data={trendingProducts} />
+            {
+              loading ? (
+                <h5 className='fw-bold'>Loading....</h5>
+              ) : (
+                <ProductList data={trendingProducts} />
+              )
+            }
           </Row>
         </Container>
       </section>
@@ -103,7 +112,13 @@ const Home = () => {
             <Col lg="12" className="text-center mb-4">
               <h2 className="section_title">Best Sales</h2>
             </Col>
-            <ProductList data={bestSalesProducts} />
+            {
+              loading ? (
+                <h5 className='fw-bold'>Loading....</h5>
+              ) : (
+                <ProductList data={bestSalesProducts} />
+              )
+            }
           </Row>
         </Container>
       </section>
@@ -117,8 +132,6 @@ const Home = () => {
                 <h4 className="text-white fs-2 mb-2">What Are You Looking At!!!!</h4>
                 <h3 className="text-white fs-3 mb-3">Grab Your Favourite Pic</h3>
               </div>
-              {/* <Clock /> */}
-
               <motion.button whileTap={{ scale: 1.2 }} onClick={goToShop} className="buy_btn store_btn">Visit Store</motion.button>
             </Col>
             <Col lg='5' md='12' className="text-end counter_img">
@@ -134,8 +147,20 @@ const Home = () => {
             <Col lg="12" className="text-center mb-4">
               <h2 className="section_title">New Arrivals</h2>
             </Col>
-            <ProductList data={paintinProducts} />
-            <ProductList data={potraitProducts} />
+            {
+              loading ? (
+                <h5 className='fw-bold'>Loading....</h5>
+              ) : (
+                <ProductList data={paintinProducts} />
+              )
+            }
+            {
+              loading ? (
+                <h5 className='fw-bold'>Loading....</h5>
+              ) : (
+                <ProductList data={potraitProducts} />
+              )
+            }
           </Row>
         </Container>
       </section>
@@ -146,7 +171,13 @@ const Home = () => {
             <Col lg="12" className="text-center mb-4">
               <h2 className="section_title">Popular in Category</h2>
             </Col>
-            <ProductList data={popularProducts} />
+            {
+              loading ? (
+                <h5 className='fw-bold'>Loading....</h5>
+              ) : (
+                <ProductList data={popularProducts} />
+              )
+            }
           </Row>
         </Container>
       </section>
