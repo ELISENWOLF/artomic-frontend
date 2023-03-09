@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-import products from '../assets/data/products';
+// import products from '../assets/data/products';
 import Helmet from '../components/Helmet/Helmet'
 import CommonSection from '../components/UI/CommonSection';
 import '../styles/product-details.css'
@@ -12,22 +12,43 @@ import { useDispatch } from 'react-redux'
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from "react-toastify";
 
+import { db } from '../firebase.config'
+import { getDoc, doc } from 'firebase/firestore';
+import useGetData from '../custom-hooks/useGetData'
+
+
 const ProductDetails = () => {
 
+  const [product, setProduct] = useState({})
   const [tab, setTab] = useState('desc')
   const reviewUser = useRef('')
   const reviewMsg = useRef('')
   const dispatch = useDispatch()
 
-  const [rating, setRating] = useState(null)
   const { id } = useParams()
-  const product = products.find(item => item.id === id)
+
+  const { data: products } = useGetData('products')
+
+  const docRef = doc(db, 'products', id)
+
+  useEffect(() => {
+    const getProduct = async() => {
+      const docSnap = await getDoc(docRef)
+
+      if(docSnap.exists()){
+        setProduct(docSnap.data())
+      } else {
+        console.log('no product!');
+      }
+    }
+
+    getProduct()
+  })
+
   const {
     imgUrl,
     productName,
     price,
-    avgRating,
-    reviews,
     category,
     shortDesc,
     description
@@ -43,7 +64,6 @@ const ProductDetails = () => {
     const reviewObj = {
       userName: reviewUserName,
       text: reviewUserMsg,
-      rating,
     }
 
     console.log(reviewObj);
@@ -66,7 +86,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [product])
+  }, [])
 
   return (
     <Helmet title={productName}>
@@ -90,12 +110,14 @@ const ProductDetails = () => {
                     <span ><i class="ri-star-half-s-fill"></i></span>
                   </div>
 
-                  <p>(<span>{avgRating}</span> ratings)</p>
+                  <p>
+                    {/* (<span>{avgRating}</span> ratings) */}
+                  </p>
                 </div>
 
                 <div className="d-flex align-items-center gap-5">
                   <span className="product_price">${price}</span>
-                  <span>Category: {category.toUpperCase()}</span>
+                  <span>Category: {category}</span>
                 </div>
                 <p className="mt-3">{shortDesc}</p>
 
@@ -120,7 +142,9 @@ const ProductDetails = () => {
                 <h6 className={`${tab === 'desc' ? 'active_tab' : ''}`}
                   onClick={() => setTab("desc")}>Description</h6>
                 <h6 className={`${tab === 'rev' ? 'active_tab' : ''}`}
-                  onClick={() => setTab("rev")}>Reviews ({reviews.length})</h6>
+                  onClick={() => setTab("rev")}>
+                    Reviews
+                </h6>
               </div>
 
               {
@@ -133,7 +157,7 @@ const ProductDetails = () => {
                   : (
                     <div className="product_review mt-5">
                       <div className="review_wrapper">
-                        <ul>
+                        {/* <ul>
                           {
                             reviews.map((item, index) => (
                               <li key={index} className="mb-4">
@@ -144,7 +168,7 @@ const ProductDetails = () => {
                               </li>
                             ))
                           }
-                        </ul>
+                        </ul> */}
 
                         <div className="review_form">
                           <h4>Let us Know your experience</h4>
@@ -156,13 +180,6 @@ const ProductDetails = () => {
                                 ref={reviewUser}
                                 required
                               />
-                            </div>
-                            <div className="form_group d-flex align-items-center gap-5 rating_group">
-                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(1)}>1<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(2)}>2<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(3)}>3<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(4)}>4<i class="ri-star-s-fill" /></motion.span>
-                              <motion.span whileTap={{ scale: 1.1 }} onClick={() => setRating(5)}>5<i class="ri-star-s-fill" /></motion.span>
                             </div>
                             <div className="form_group">
                               <textarea
