@@ -1,19 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react'
-
+import { useRef, useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import './header.css'
-
 import { motion } from 'framer-motion'
+import { Container, Row } from 'reactstrap'
+import { useSelector } from 'react-redux'
+import { signOut } from 'firebase/auth'
+import { toast } from 'react-toastify'
 
 import logo from '../../assets/images/eco-logo.png'
 import userIcon from '../../assets/images/user-icon.png'
-
-import { Container, Row } from 'reactstrap'
-import { useSelector } from 'react-redux'
-import useAuth from '../../custom-hooks/useAuth'
-import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase.config'
-import { toast } from 'react-toastify'
+import useAuth from '../../custom-hooks/useAuth'
+import './header.css'
 
 const nav_links = [
   {

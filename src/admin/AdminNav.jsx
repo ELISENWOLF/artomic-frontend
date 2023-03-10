@@ -1,10 +1,8 @@
-import React from 'react'
 import { Container, Row } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 
 import useAuth from '../custom-hooks/useAuth'
 import '../styles/admin-nav.css'
-
-import { NavLink } from 'react-router-dom'
 
 const admin_nav = [
     {
@@ -64,9 +62,9 @@ const AdminNav = () => {
                             <ul className="admin_menu-list">
                                 {
                                     admin_nav.map((item, index) => (
-                                       <li className="admin_menu-item" key={index}>
-                                         <NavLink to={item.path} className={navClass => navClass.isActive ? 'active_admin-menu' : ''}>{item.display}</NavLink>
-                                       </li>
+                                        <li className="admin_menu-item" key={index}>
+                                            <NavLink to={item.path} className={navClass => navClass.isActive ? 'active_admin-menu' : ''}>{item.display}</NavLink>
+                                        </li>
                                     ))
                                 }
                             </ul>

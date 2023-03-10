@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Helmet = (props) => {
 
   document.title = 'Artomic - ' + props.title

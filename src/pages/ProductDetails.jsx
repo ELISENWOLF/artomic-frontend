@@ -1,20 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react'
-
+import { useState, useRef, useEffect } from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-// import products from '../assets/data/products';
-import Helmet from '../components/Helmet/Helmet'
 import CommonSection from '../components/UI/CommonSection';
-import '../styles/product-details.css'
 import { motion } from 'framer-motion'
-import ProductList from '../components/UI/ProductList';
 import { useDispatch } from 'react-redux'
-import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from "react-toastify";
 
+import Helmet from '../components/Helmet/Helmet'
+import ProductList from '../components/UI/ProductList';
+import { cartActions } from '../redux/slices/cartSlice';
 import { db } from '../firebase.config'
 import { getDoc, doc } from 'firebase/firestore';
 import useGetData from '../custom-hooks/useGetData'
+import '../styles/product-details.css'
 
 
 const ProductDetails = () => {
@@ -32,10 +30,10 @@ const ProductDetails = () => {
   const docRef = doc(db, 'products', id)
 
   useEffect(() => {
-    const getProduct = async() => {
+    const getProduct = async () => {
       const docSnap = await getDoc(docRef)
 
-      if(docSnap.exists()){
+      if (docSnap.exists()) {
         setProduct(docSnap.data())
       } else {
         console.log('no product!');
@@ -109,10 +107,6 @@ const ProductDetails = () => {
                     <span ><i class="ri-star-s-fill"></i></span>
                     <span ><i class="ri-star-half-s-fill"></i></span>
                   </div>
-
-                  <p>
-                    {/* (<span>{avgRating}</span> ratings) */}
-                  </p>
                 </div>
 
                 <div className="d-flex align-items-center gap-5">
@@ -143,7 +137,7 @@ const ProductDetails = () => {
                   onClick={() => setTab("desc")}>Description</h6>
                 <h6 className={`${tab === 'rev' ? 'active_tab' : ''}`}
                   onClick={() => setTab("rev")}>
-                    Reviews
+                  Reviews
                 </h6>
               </div>
 
@@ -157,19 +151,6 @@ const ProductDetails = () => {
                   : (
                     <div className="product_review mt-5">
                       <div className="review_wrapper">
-                        {/* <ul>
-                          {
-                            reviews.map((item, index) => (
-                              <li key={index} className="mb-4">
-
-                                <h6>Jhon Doe</h6>
-                                <span>{item.rating} (rating)</span>
-                                <p>{item.text}</p>
-                              </li>
-                            ))
-                          }
-                        </ul> */}
-
                         <div className="review_form">
                           <h4>Let us Know your experience</h4>
                           <form action="" onSubmit={submitHandler}>

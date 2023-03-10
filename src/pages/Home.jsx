@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
-import Helmet from '../components/Helmet/Helmet'
-import '../styles/home.css'
-
 import { Container, Row, Col } from "reactstrap"
-import heroImg from '../assets/images/hero-image.png'
 
+import heroImg from '../assets/images/hero-image.png'
 import Services from '../services/Services'
 import ProductList from '../components/UI/ProductList'
-
 import counterImg from '../assets/images/counter-timer-img.jpeg'
-
 import useGetData from '../custom-hooks/useGetData'
+import Helmet from '../components/Helmet/Helmet'
+import '../styles/home.css'
 
 
 const Home = () => {
 
-  const {data: products, loading} = useGetData('products')
+  const { data: products, loading } = useGetData('products')
 
   const [trendingProducts, setTrendingProducts] = useState([])
   const [bestSalesProducts, setBestSalesProducts] = useState([])

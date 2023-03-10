@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import Helmet from '../components/Helmet/Helmet'
+import { useEffect, useState } from 'react'
 import { Container, Row, Col, Form, FormGroup } from 'reactstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../firebase.config'
 import { toast } from 'react-toastify'
 
+import Helmet from '../components/Helmet/Helmet'
+import { auth } from '../firebase.config'
 import '../styles/login.css'
 
 
@@ -18,11 +18,11 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  const signIn =  async(e) => {
+  const signIn = async (e) => {
     e.preventDefault()
     setLoading(true)
 
-    try{
+    try {
 
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
       const user = userCredential.user
@@ -32,7 +32,7 @@ const Login = () => {
       toast.success('Successfully logged in')
       navigate('/checkout')
 
-    }catch(error){
+    } catch (error) {
 
       setLoading(false)
       toast.error(error.message)
@@ -55,30 +55,30 @@ const Login = () => {
                 </Col>
               ) : (
                 <Col lg='6' className='m-auto text-center'>
-              <h3 className="fw-bold mb-4">Login</h3>
+                  <h3 className="fw-bold mb-4">Login</h3>
 
-              <Form className='auth_form' onSubmit={signIn}>
-                <FormGroup className='form_group'>
-                  <input 
-                    type="email" 
-                    placeholder='Enter your email' 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)}
-                  />
-                </FormGroup>
-                <FormGroup className='form_group'>
-                  <input 
-                    type="password" 
-                    placeholder='Enter password' 
-                    value={password} 
-                    onChange={e => setPassword(e.target.value)}
-                  />
-                </FormGroup>
+                  <Form className='auth_form' onSubmit={signIn}>
+                    <FormGroup className='form_group'>
+                      <input
+                        type="email"
+                        placeholder='Enter your email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                      />
+                    </FormGroup>
+                    <FormGroup className='form_group'>
+                      <input
+                        type="password"
+                        placeholder='Enter password'
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                      />
+                    </FormGroup>
 
-                <motion.button whileTap={{scale: 1.1}} className="buy_btn auth_btn">Login</motion.button>
-                <p>Don't have an account? <Link to='/signup'>Create an account</Link></p>
-              </Form>
-            </Col>
+                    <motion.button whileTap={{ scale: 1.1 }} className="buy_btn auth_btn">Login</motion.button>
+                    <p>Don't have an account? <Link to='/signup'>Create an account</Link></p>
+                  </Form>
+                </Col>
               )
             }
           </Row>

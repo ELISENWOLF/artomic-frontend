@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { Container, Row, Col } from 'reactstrap'
 
 import CommonSection from '../components/UI/CommonSection'
 import Helmet from '../components/Helmet/Helmet'
-import { Container, Row, Col } from 'reactstrap'
-
 import '../styles/shop.css'
-
 import ProductList from '../components/UI/ProductList'
 import useGetData from '../custom-hooks/useGetData'
 
@@ -50,6 +48,8 @@ const Shop = () => {
     window.scrollTo(0, 0)
   }, [])
 
+  // console.log(productsData);
+
   return (
     <Helmet title='Shop' >
 
@@ -93,11 +93,10 @@ const Shop = () => {
         <Container>
           <Row>
             {
-              productsData.length === 0
+              products.length === 0
                 ? <h1 className="text-center fs-4">No products are found</h1>
                 : (
                   <>
-                    {/* <ProductList data={products} /> */}
                     <ProductList data={productsData} />
                   </>
                 )

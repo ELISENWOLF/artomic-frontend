@@ -1,27 +1,28 @@
 import { useEffect, useState } from 'react'
-import { db } from '../firebase.config'
 import { collection, onSnapshot } from 'firebase/firestore'
+
+import { db } from '../firebase.config'
 
 const useGetData = (collectionName) => {
 
-  const [ data, setData ] = useState([])
-  const [ loading, setLoading ] = useState(true)
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
   const collectionRef = collection(db, collectionName)
 
-  useEffect(()=> {
+  useEffect(() => {
 
-      const getData = async() => {
+    const getData = async () => {
 
-        // firebase firestore realtime data update
-          await onSnapshot(collectionRef, (snapshot) => {
-            setData(snapshot.docs.map(doc => ({ ...doc.data(), id:doc.id })))
-            setLoading(false)
-          })
-      }
-      getData()
+      // firebase firestore realtime data update
+      await onSnapshot(collectionRef, (snapshot) => {
+        setData(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+        setLoading(false)
+      })
+    }
+    getData()
   })
 
-return { data, loading }
+  return { data, loading }
 }
 
 export default useGetData

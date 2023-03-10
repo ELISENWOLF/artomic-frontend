@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import '../styles/cart.css'
-import Helmet from '../components/Helmet/Helmet'
-import CommonSection from '../components/UI/CommonSection'
+import { useEffect } from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
-
 import { motion } from 'framer-motion'
-import { cartActions } from '../redux/slices/cartSlice'
 import { useSelector, useDispatch } from 'react-redux'
+
+import Helmet from '../components/Helmet/Helmet'
+import CommonSection from '../components/UI/CommonSection'
+import { cartActions } from '../redux/slices/cartSlice'
+import '../styles/cart.css'
 
 const Cart = () => {
 

@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Container, Row, Col, Form, FormGroup } from 'reactstrap'
+import { useSelector } from 'react-redux'
+
 import Helmet from '../components/Helmet/Helmet'
 import CommonSection from '../components/UI/CommonSection'
-
 import '../styles/checkout.css'
-import { useSelector } from 'react-redux'
 
 const Checkout = () => {
 
