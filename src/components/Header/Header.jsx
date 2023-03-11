@@ -72,7 +72,7 @@ const Header = () => {
 
     profileActionRef.current.classList.toggle('show_profileActions')
 
-    if(currentUser.displayName === 'admin'){
+    if(currentUser.email === 'admin@gmail.com'){
       setAdmin(false)
     }
   }
