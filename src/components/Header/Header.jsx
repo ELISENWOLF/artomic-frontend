@@ -135,7 +135,7 @@ const Header = () => {
                       ) : (
                         <>
                         <motion.p className='text-center' whileHover={{scale:1.1}} onClick={logout}>Logout</motion.p> 
-                        <Link to='/dashboard'><motion.p className='text-center' whileHover={{scale:1.1}}>Admin</motion.p></Link>
+                        <Link to='/admin/dashboard'><motion.p className='text-center' whileHover={{scale:1.1}}>Admin</motion.p></Link>
                         </>
                       )
                        

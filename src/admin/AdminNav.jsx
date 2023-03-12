@@ -13,23 +13,19 @@ import '../styles/admin-nav.css'
 const admin_nav = [
     {
         display: 'Dashboard',
-        path: '/dashboard'
+        path: '/admin/dashboard'
     },
     {
         display: 'All-Products',
-        path: '/dashboard/all-products'
+        path: '/admin/all-products'
     },
     {
         display: 'Add-Products',
-        path: '/dashboard/add-products'
-    },
-    {
-        display: 'Orders',
-        path: '/dashboard/orders'
+        path: '/admin/add-products'
     },
     {
         display: 'Users',
-        path: '/dashboard/users'
+        path: '/admin/users'
     },
 ]
 
@@ -77,7 +73,7 @@ const AdminNav = () => {
         <Container>
           <Row>
             <div className="admin_nav_wrapper">
-              <div className="logo">
+              <div className="admin_logo">
                 <h1>Artomic</h1>
               </div>
 

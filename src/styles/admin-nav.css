@@ -12,7 +12,7 @@
     margin-top: 1.5%;
   }
   
-  .logo h1 {
+  .admin_logo h1 {
     font-size: 1.2rem;
     font-weight: 700;
     color: whitesmoke;
@@ -37,13 +37,7 @@
     column-gap: 1.2rem;
   }
   
-  .admin_nav_icons span i {
-    font-size: 1.4rem;
-    color: whitesmoke;
-    cursor: pointer;
-  }
-  
-  .admin_nav_icons .admin_profile img {
+  .admin_profile img {
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -51,7 +45,7 @@
     border-radius: 50%;
   }
   
-  .admin_nav_icons .admin_profile{
+  .admin_profile{
     position: relative;
     z-index: 9;
   }
@@ -59,7 +53,7 @@
   .admin_action{
     position: absolute;
     top: 98%;
-    right: 0px;
+    right: 0%;
     width: 150px;
     z-index: 10;
     padding: 10px;
@@ -67,7 +61,7 @@
     align-items: center;
     flex-direction: column;
     border-radius: 2px 2px 5px 5px;
-    background-color: rgba(241, 232, 232, 0.755);
+    background-color: rgba(237, 235, 235, 0.877);
     line-height: 30px;
     display: none;
     cursor: pointer;
@@ -78,11 +72,11 @@
   }
   
   .admin_action div a:visited{
-    color: whitesmoke;
+    color: var(--primary-color);
   }
   
   .admin_action p {
-    color: whitesmoke;
+    color: var(--primary-color);
   }
   
   .admin_action p:hover {
